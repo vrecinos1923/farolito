@@ -1,0 +1,61 @@
+<!-- Titlebar
+================================================== -->
+<div id="titlebar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2><%= t('titulos.institucion') %></h2>
+        <!-- Breadcrumbs -->
+        <nav id="breadcrumbs">
+          <ul>
+            <li><%= inicio %></li>
+            <li>Instituciónes</li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Content
+    ================================================== -->
+
+<section class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="row">    
+    <div class="col-lg-12">
+      <table class="basic-table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col"><%= t('activerecord.attributes.institucion.nombre') %></th><!--style="width: 60%"-->
+            <th scope="col"><%= t('activerecord.attributes.institucion.abreviatura') %></th>
+            <th scope="col"><%= t('activerecord.attributes.institucion.direccion') %></th>
+            <th scope="col" colspan="2"><%= t('titulos.acciones') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @institucions.each do |institucion| %>
+          <tr>
+              <td><%= institucion.id %></td>
+              <td><%= institucion.nombre %></td>
+              <td><%= institucion.abreviatura %></td>
+              <td><%= institucion.direccion %></td>
+              <td>
+                <%= link_to t('botones.tipos'), institucion_institucioncatalogos_path(institucion), :class => 'button btn btn-secondary boton-xs' %>
+              </td>
+              <td>
+                <div class="btn-group" role="group">
+                  <%= link_to t('botones.show'), institucion, :class => 'button btn btn-secondary boton-xs' %>
+                  <%= link_to t('botones.editar'), edit_institucion_path(institucion), :class => 'button btn btn-info boton-xs' %>
+                  <%= link_to t('botones.eliminar'), institucion, method: :delete, data: { confirm: 'Seguro que desea eliminar este institución?' }, :class => 'button btn btn-danger boton-xs' %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <%= link_to t('botones.nuevo'), new_institucion_path, :class => 'button btn btn-primary' %>
+    </div>
+  </div>
+</section>

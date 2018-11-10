@@ -1,0 +1,115 @@
+<div class="row">
+  <div class="col-lg-12">
+    <%= form_with(model: denuncium, local: true) do |form| %>
+      <% if denuncium.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(denuncium.errors.count, "error") %> prohibited this denuncium from being saved:</h2>
+
+          <ul>
+          <% denuncium.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-row">           
+        <div class="form-group mb-2 col-md-4">
+          <%= form.label :fecha %>
+        </div> 
+        <div class="form-group mb-2 col-md-8">
+          <%#= form.datetime_select :fecha, :ampm => true %>
+          <%= form.text_field :fecha, data:{ provide:'datepicker' }, :class => 'form-control', :id => 'inicio' %>  
+        </div>
+      </div>
+
+      <div class="form-row">           
+        <div class="form-group mb-2 col-md-4">
+          <%= form.label :descripcion %>
+        </div> 
+        <div class="form-group mb-2 col-md-8">
+          <%= form.text_field :descripcion %>
+        </div>
+      </div>
+
+      <div class="form-row">           
+        <div class="form-group mb-2 col-md-4">
+          <%= form.label :longitud %>
+        </div> 
+        <div class="form-group mb-2 col-md-8">
+          <%= form.text_field :longitud, :id => 'longitud', :readonly => "true" %>
+        </div>
+      </div>
+
+      <div class="form-row">           
+        <div class="form-group mb-2 col-md-4">
+          <%= form.label :latitud %>
+        </div> 
+        <div class="form-group mb-2 col-md-8">
+          <%= form.text_field :latitud, :id => 'latitud', :readonly => "true" %>
+        </div>
+      </div>
+
+      <div class="form-row">           
+        <div class="form-group mb-2 col-md-4">
+          <%= form.label :catalogo %>
+        </div> 
+        <div class="form-group mb-2 col-md-8">
+          <%= form.collection_select(:catalogo_id, @valores, :id, :valor, {},{:class => "form-control chosen-select"}) %>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div id="map" style=" height: 400px;"></div>
+      </div>
+      <br>
+      <br>
+      <div class="actions">
+        <button type="submit" class="button btn btn-primary"><i class='fa fa-save'></i> Guardar</button>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){    
+    $( "#inicio" ).datepicker({lenguage: 'es',format:'dd-mm-yyyy',autoclose: true});
+  });
+</script>
+
+<script type="text/javascript">
+  var gx_start = 14.681127723;
+  var gy_start = -90.48370420;
+  var map_opt = {
+    zoom: 15, 
+    center: new google.maps.LatLng(gx_start,gy_start), 
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    zoomControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        panControl: false,
+        navigationControl: false,
+        streetViewControl: false,
+        gestureHandling: 'cooperative'
+  };
+
+  var this_map = new google.maps.Map(document.getElementById('map'),map_opt);
+
+      //INICIAR CARGA DE DATOS
+  $(document).ready(function(){
+    google.maps.event.addDomListener(window, 'load', placeMarkerAndPanTo());
+  });
+
+  function placeMarkerAndPanTo() {
+    google.maps.event.addListener(this_map, 'click', function(e){ 
+      init_marker = new google.maps.Marker({
+        position: {lat: e.latLng.lat(), lng: e.latLng.lng() },
+        map: this_map,
+        title: "Denuncia",
+        icon: new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_bubble_icon_text_small&chld=caution|bbbr|Incidente|000066|FFFFFF")
+        });
+      $('#longitud').val(e.latLng.lng());
+      $('#latitud').val(e.latLng.lat());
+    });
+  }
+</script>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @denuncium.fecha %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @denuncium.descripcion %>
+</p>
+
+<p>
+  <strong>Longitud:</strong>
+  <%= @denuncium.longitud %>
+</p>
+
+<p>
+  <strong>Latitud:</strong>
+  <%= @denuncium.latitud %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @denuncium.estado %>
+</p>
+
+<p>
+  <strong>Catalogo:</strong>
+  <%= @denuncium.catalogo %>
+</p>
+
+<%= link_to 'Edit', edit_denuncium_path(@denuncium) %> |
+<%= link_to 'Back', denuncia_path %>

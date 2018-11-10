@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="centrado">
+		<form style="width: 350px;">  
+			<div class="form-row">			     
+        		<div class="form-group mb-2 col-md-4">            
+		         	<p class="form-control text-primary"><%= t('activerecord.attributes.institucion.nombre') %>: </p>
+		        </div> 
+		        <div class="form-group mb-2 col-md-8">                       
+		          	<p class="form-control"><%= @institucion.nombre %></p>	            	
+		        </div>  
+		    </div>
+		    <div class="form-row">			     
+        		<div class="form-group mb-2 col-md-4">            
+		         	<p class="form-control text-primary"><%= t('activerecord.attributes.institucion.abreviatura') %>: </p>
+		        </div> 
+		        <div class="form-group mb-2 col-md-8">                       
+		          	<p class="form-control"><%= @institucion.abreviatura %></p>	            	
+		        </div>  
+		    </div>
+		    <div class="form-row">			     
+        		<div class="form-group mb-2 col-md-4">            
+		         	<p class="form-control text-primary"><%= t('activerecord.attributes.institucion.direccion') %>: </p>
+		        </div> 
+		        <div class="form-group mb-2 col-md-8">                       
+		          	<p class="form-control"><%= @institucion.direccion %></p>	            	
+		        </div>  
+		    </div>		    	    	    	      	
+	    </form>
+  	</div>
+</div>
+
+<%= link_to t('titulos.editar'), edit_institucion_path(@institucion) %> |
+<%= link_to t('titulos.regresar'), institucions_path %>

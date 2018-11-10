@@ -1,0 +1,25 @@
+<!-- Titlebar
+================================================== -->
+<div id="titlebar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2><%= t('titulos.catalogo') %></h2>
+        <!-- Breadcrumbs -->
+        <nav id="breadcrumbs">
+          <ul>
+            <li><%= inicio %></li>
+            <li><%= link_to t('titulos.institucion'), institucions_path %></li>
+            <li><%= link_to t('titulos.catalogo'), institucion_institucioncatalogos_path(@institucion) %></li>
+            <li><%= t('titulos.nuevo') %></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Content
+    ================================================== -->
+<section class="container">  
+	<%= render 'form', institucioncatalogo: @institucioncatalogo %>
+</section>

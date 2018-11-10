@@ -1,0 +1,55 @@
+<!-- Titlebar
+================================================== -->
+<div id="titlebar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2><%= t('titulos.catalogo') %></h2>
+        <!-- Breadcrumbs -->
+        <nav id="breadcrumbs">
+          <ul>
+            <li><%= inicio %></li>
+            <li>Catalogo</li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Content
+    ================================================== -->
+<section class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="row">    
+    <div class="col-lg-12">
+      <table class="basic-table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col"><%= t('activerecord.attributes.catalogo.valor') %></th><!--style="width: 60%"-->
+            <th scope="col"><%= t('activerecord.attributes.catalogo.descripcion') %></th>
+            <th scope="col"><%= t('titulos.acciones') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @catalogos.each do |catalogo| %>
+            <tr>
+              <td><%= catalogo.id %></td>
+              <td><%= catalogo.valor %></td>
+              <td><%= catalogo.descripcion %></td>
+              <td>
+                <div class="btn-group" role="group">
+                  <%= link_to t('botones.show'), catalogo, :class => 'button btn btn-secondary boton-xs' %>
+                  <%= link_to t('botones.editar'), edit_catalogo_path(catalogo), :class => 'button btn btn-info boton-xs' %>
+                  <%= link_to t('botones.eliminar'), catalogo, method: :delete, data: { confirm: 'Seguro que desea eliminar este catalogo?' }, :class => 'button btn btn-danger boton-xs' %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <%= link_to t('botones.nuevo'), new_catalogo_path, :class => 'button btn btn-primary' %>
+    </div>
+  </div>
+</section>

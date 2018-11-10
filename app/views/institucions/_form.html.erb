@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-lg-12">
+    <%= form_with(model: institucion, local: true) do |form| %>
+      <% if institucion.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(institucion.errors.count, "error") %> prohibited this institucion from being saved:</h2>
+
+          <ul>
+          <% institucion.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-row">           
+        <div class="form-group mb-2 col-md-4"> 
+          <%= form.label :nombre %>
+        </div> 
+        <div class="form-group mb-2 col-md-8">
+          <%= form.text_field :nombre, id: :institucion_nombre %>
+        </div>
+      </div>
+
+      <div class="form-row">           
+        <div class="form-group mb-2 col-md-4"> 
+          <%= form.label :abreviatura %>
+        </div> 
+        <div class="form-group mb-2 col-md-8">
+          <%= form.text_field :abreviatura, id: :institucion_abreviatura %>
+        </div>
+      </div>
+
+      <div class="form-row">           
+        <div class="form-group mb-2 col-md-4"> 
+          <%= form.label :direccion %>
+        </div> 
+        <div class="form-group mb-2 col-md-8">
+          <%= form.text_field :direccion, id: :institucion_direccion %>
+        </div>
+      </div>
+      <br>
+      <div class="actions">
+        <button type="submit" class="button btn btn-primary"><i class='fa fa-save'></i> Guardar</button>
+      </div>
+    <% end %>
+  </div>
+</div>

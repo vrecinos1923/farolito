@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-lg-12">
+    <%= form_with(model: catalogo, local: true) do |form| %>
+      <% if catalogo.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(catalogo.errors.count, "error") %> prohibited this catalogo from being saved:</h2>
+
+          <ul>
+          <% catalogo.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-row">           
+        <div class="form-group mb-2 col-md-4"> 
+          <%= form.label :valor %>
+        </div> 
+        <div class="form-group mb-2 col-md-8">
+          <%= form.text_field :valor, id: :catalogo_valor %>
+        </div>
+      </div>
+
+      <div class="form-row">           
+        <div class="form-group mb-2 col-md-4">
+          <%= form.label :descripcion %>
+        </div> 
+        <div class="form-group mb-2 col-md-8">
+          <%= form.text_field :descripcion, id: :catalogo_descripcion %>
+        </div>
+      </div>
+      <br>
+      <div class="actions">
+        <button type="submit" class="button btn btn-primary"><i class='fa fa-save'></i> Guardar</button>
+      </div>
+    <% end %>
+  </div>
+</div>

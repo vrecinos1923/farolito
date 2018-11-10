@@ -1,0 +1,192 @@
+es:
+  titulos:
+    acciones: "Acciones" 
+    nuevo: "Nuevo"
+    editar: "Editar"
+    regresar: "Regresar"
+    catalogo: "Catálogos"
+    institucion: "Instituciones"
+    insticata: "Catalogos por Institución"
+    denuncium: "Denuncias"
+  botones:
+    show: "Mostrar"
+    editar: "Editar"
+    eliminar: "Eliminar"
+    nuevo: "Nuevo"
+    tipos: "Tipo Denuncia"
+  activerecord:
+    attributes:
+      catalogo:
+        valor: "Valor"
+        descripcion: "Descripción"
+      institucion:
+        nombre: "Nombre"
+        abreviatura: "Abreviatura"
+        direccion: "Dirección"
+      institucioncatalogo:
+        institucion_id: "Institución"
+        catalogo_id: "Catálogo"
+      denuncium:
+        fecha: "Fecha"
+        descripcion: "Descripción"
+        longitud: "Longitud"
+        latitud: "Latitud"
+        catalogo_id: "Tipo de Denuncia"
+      usuario:
+        nombre: "Nombre"
+        apellido: "Apellido"
+        email: "Email"
+        password: "Contraseña"
+        institucion_id: "Institución"
+    errors:
+      models:
+        catalogo:
+          attributes:
+            valor:
+              blank: "en blanco"
+              taken: "ya existe"
+              too_long: "no puede tener más de 50 caracteres"
+            descripcion:
+              blank: "en blanco"
+              too_long: "no puede tener más de 150 caracteres"
+        institucion:
+          attributes:
+            nombre:
+              blank: "en blanco"
+              taken: "ya existe"
+              too_long: "no puede tener más de 350 caracteres"
+            abreviatura:
+              blank: "en blanco"
+            direccion:
+              blank: "en blanco"
+        institucioncatalogo:
+          attributes:  
+            institucion_id:
+              blank: "en blanco"
+            catalogo_id:
+              blank: "en blanco"
+              taken: "ya existe para esta Institución"
+        denuncium:
+          attributes:
+            fecha:
+              blank: "en blanco"
+            descripcion:
+              too_long: "no puede tener más de 350 caracteres"
+            longitud:
+              blank: "en blanco"
+            latitud:
+              blank: "en blanco"
+            catalogo_id:
+              blank: "en blanco"
+        usuario:
+          attributes:
+            nombre:
+              blank: "en blanco"
+              too_long: "no puede tener más de 150 caracteres"
+            apellido:
+              blank: "en blanco"
+              too_long: "no puede tener más de 150 caracteres"
+            email:
+              blank: "en blanco"
+              taken: "ya existe"
+              too_long: "no puede tener más de 150 caracteres"
+            password:
+              blank: "en blanco"
+            institucion_id:
+              blank: "en blanco"
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    - 
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %b"
+    month_names:
+    - 
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: alrededor de 1 hora
+        other: alrededor de %{count} horas
+      about_x_months:
+        one: alrededor de 1 mes
+        other: alrededor de %{count} meses
+      about_x_years:
+        one: alrededor de 1 año
+        other: alrededor de %{count} años
+      almost_x_years:
+        one: casi 1 año
+        other: casi %{count} años
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: más de 1 año
+        other: más de %{count} años
+      x_days:
+        one: 1 día
+        other: "%{count} días"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mes
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minutos
+      month: Mes
+      second: Segundos
+      year: Año

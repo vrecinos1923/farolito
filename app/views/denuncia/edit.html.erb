@@ -1,0 +1,24 @@
+<!-- Titlebar
+================================================== -->
+<div id="titlebar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2><%= t('titulos.denuncium') %></h2>
+        <!-- Breadcrumbs -->
+        <nav id="breadcrumbs">
+          <ul>
+            <li><%= inicio %></li>
+            <li><%= link_to t('titulos.denuncium'), denuncia_path %></li>
+            <li><%= t('titulos.editar') %></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Content
+    ================================================== -->
+<section class="container">  
+	<%= render 'form', denuncium: @denuncium %>
+</section>
